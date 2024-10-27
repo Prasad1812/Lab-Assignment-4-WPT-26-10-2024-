@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q5</title>
+</head>
+<body>
+
+    <script>
+        const sumOfDigits = (num) => {
+            return String(num)
+                .split('') 
+                .map(Number) 
+                .reduce((acc, curr) => acc + curr, 0);
+        };
+        console.log("Sum of digits in 0: " + sumOfDigits(1234));
+        console.log("Sum of digits in 0: " + sumOfDigits(4567));
+    </script>
+
+</body>
+</html>
+

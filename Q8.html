@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q8</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+
+        .container {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            text-align: center;
+        }
+
+        textarea {
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: none;
+            font-size: 14px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #counter {
+            font-size: 14px;
+            font-weight: bold;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        .warning {
+            color: #ff9800;
+        }
+
+        .over-limit {
+            color: #f44336;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <textarea id="text" rows="5" placeholder="Type here..."></textarea>
+        <div id="counter">Remaining characters: 100</div>
+    </div>
+
+    <script>
+        const maxChars = 100;
+        const textArea = document.getElementById('text');
+        const counter = document.getElementById('counter');
+
+        textArea.addEventListener('input', () => {
+            const remaining = maxChars - textArea.value.length;
+            counter.textContent = remaining >= 0 ? `Remaining characters: ${remaining}` : `Over limit by: ${-remaining}`;
+            counter.className = remaining < 0 ? 'over-limit' : remaining <= 20 ? 'warning' : '';
+        });
+    </script>
+
+</body>
+</html>
